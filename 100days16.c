@@ -1,0 +1,23 @@
+//Q16: Write a program to input three numbers and find the largest among them using if–else.
+
+#include <stdio.h>
+
+int main() {
+    float a, b, c;
+
+    printf("Enter three numbers:\n");
+    scanf("%f %f %f", &a, &b, &c);
+
+    if (a > b && a > c) {
+        printf("The largest number is %.2f\n", a);
+    }
+    else if (b > a && b > c) {
+        printf("The largest number is %.2f\n", b);
+    }
+    else {
+        printf("The largest number is %.2f\n", c);
+    }
+
+    return 0;
+}
+

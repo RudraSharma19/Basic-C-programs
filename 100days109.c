@@ -1,0 +1,36 @@
+// Q109: Write a program to take an integer array arr and an integer k as inputs. Print the maximum sum of all the subarrays of size k.
+#include <stdio.h>
+
+int main() {
+    int n, k;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter %d elements: ", n);
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter subarray size k: ");
+    scanf("%d", &k);
+
+    int sum = 0, maxSum = 0;
+
+    // Compute sum of first window
+    for(int i = 0; i < k; i++) {
+        sum += arr[i];
+    }
+    maxSum = sum;
+
+    // Slide the window across the array
+    for(int i = k; i < n; i++) {
+        sum = sum - arr[i - k] + arr[i];
+        if(sum > maxSum) {
+            maxSum = sum;
+        }
+    }
+
+    printf("%d\n", maxSum);
+    return 0;
+}
